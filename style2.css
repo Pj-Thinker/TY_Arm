@@ -17,6 +17,7 @@ body {
   height: 100%;
   width: 100%;
   overflow: hidden;
+  position: relative;
 }
 
 body {
@@ -157,15 +158,11 @@ body {
 } */
 
 .page {
-  padding: 1rem;
+  padding: 6rem;
   position: absolute;
   right: 0;
   bottom: 0;
   color: black;
   font-size: 6rem;
-  /* border: 1px solid red; */
-}
-
-.page a {
-  color: black;
+  /* border: 1px solid white; */
 }
