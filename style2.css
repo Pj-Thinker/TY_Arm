@@ -1,0 +1,171 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  transform-style: preserve-3d;
+}
+
+:root {
+  --color-body: black;
+  --color-pole: rgb(150, 150, 150);
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: var(--color-body);
+}
+
+#app {
+  height: auto;
+  width: auto;
+  padding: 1rem;
+  border-radius: 8px;
+  /* background: var(--color-app); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 6rem;
+}
+
+.frame,
+.frame2 {
+  --frame-length: 400px;
+  --frame-height: 229px;
+  width: var(--frame-length);
+  height: var(--frame-height);
+  position: relative;
+}
+
+.segment,
+.segment2 {
+  --segment: calc(var(--frame-length) / var(--segments));
+  position: absolute;
+  top: 0;
+  left: calc(var(--i) * var(--segment));
+  height: 100%;
+  width: var(--segment);
+  background-image: url('./Flag-iran.webp');
+  background-position: calc(-1 * var(--i) * var(--segment)) top;
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+}
+
+.segment2 {
+  background-image: url('./TY_Flag.png');
+}
+
+.frame .segment {
+  --translate: 10px;
+  animation-name: ripple;
+  animation-duration: 3.5s;
+  animation-timing-function: ease-in-out;
+  animation-delay: calc(var(--i) * 1s / var(--segments));
+  animation-iteration-count: infinite;
+}
+
+.frame2 .segment2 {
+  --translate: 10px;
+  animation-name: ripple2;
+  animation-duration: 3s;
+  animation-timing-function: ease-in-out;
+  animation-delay: calc(var(--i) * 1s / var(--segments));
+  animation-iteration-count: infinite;
+}
+
+@keyframes ripple {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(
+      calc(var(--a) * var(--translate) * (var(--segments) / 100))
+    );
+  }
+  75% {
+    transform: translateY(
+      calc(-1 * var(--a) * var(--translate) * (var(--segments) / 100))
+    );
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes ripple2 {
+  0% {
+    transform: translateY(
+      calc(-1 * var(--a) * var(--translate) * (var(--segments) / 100))
+    );
+  }
+  25% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(
+      calc(var(--a) * var(--translate) * (var(--segments) / 100))
+    );
+  }
+  75% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(
+      calc(-1 * var(--a) * var(--translate) * (var(--segments) / 100))
+    );
+  }
+}
+
+/* .frame::before,
+.frame2::before {
+  content: '';
+  width: 10px;
+  height: 100vh;
+  inset: 0;
+  position: absolute;
+  top: -10%;
+  z-index: 2;
+  border-radius: 5px 5px 1px 1px;
+  background-color: var(--color-pole);
+  box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.frame:after,
+.frame2::after {
+  content: '';
+  width: 3px;
+  height: 300%;
+  position: absolute;
+  top: -8%;
+  left: 5px;
+  z-index: 2;
+  border-radius: 5px 5px 1px 1px;
+  background-color: rgba(255, 255, 255, 0.4);
+  filter: blur(1px);
+} */
+
+.page {
+  padding: 1rem;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  color: black;
+  font-size: 6rem;
+  /* border: 1px solid red; */
+}
+
+.page a {
+  color: black;
+}

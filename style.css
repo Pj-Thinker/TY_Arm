@@ -164,3 +164,17 @@ header {
     transform: translateX(-100vw);
   }
 }
+
+.page {
+  padding: 1rem;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  color: black;
+  font-size: 6rem;
+  /* border: 1px solid red; */
+}
+
+.page a {
+  color: black;
+}
